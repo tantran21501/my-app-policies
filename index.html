@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Privacy Policy &amp; Terms for our mobile applications</title>
+    <style>
+        :root {
+            --bg: #f5f7fb;
+            --surface: rgba(255, 255, 255, 0.92);
+            --surface-strong: #ffffff;
+            --text: #101828;
+            --muted: #475467;
+            --line: #d0d5dd;
+            --accent: #175cd3;
+            --accent-soft: #eaf2ff;
+            --shadow: 0 18px 40px rgba(16, 24, 40, 0.08);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --max: 1080px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(23, 92, 211, 0.09), transparent 28%),
+                radial-gradient(circle at 85% 8%, rgba(23, 92, 211, 0.06), transparent 22%),
+                linear-gradient(180deg, #ffffff 0%, #f5f7fb 32%, #eef3fb 100%);
+            font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .shell {
+            width: min(var(--max), calc(100% - 32px));
+            margin: 0 auto;
+            padding: 32px 0 56px;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .brand strong {
+            font-size: 15px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .brand span {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav a {
+            padding: 10px 14px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav a.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.95fr);
+            gap: 22px;
+            align-items: stretch;
+            margin-bottom: 26px;
+            padding: 34px;
+            border: 1px solid rgba(208, 213, 221, 0.72);
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-copy {
+            display: grid;
+            gap: 18px;
+            align-content: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.5rem, 5vw, 4.6rem);
+            line-height: 0.98;
+            letter-spacing: -0.04em;
+            max-width: 11ch;
+        }
+
+        .lede {
+            margin: 0;
+            max-width: 68ch;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 0 18px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: var(--surface-strong);
+            color: var(--text);
+            font-weight: 700;
+            box-shadow: 0 1px 0 rgba(16, 24, 40, 0.04);
+        }
+
+        .btn.primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .hero-panel {
+            padding: 22px;
+            border-radius: 22px;
+            border: 1px solid rgba(208, 213, 221, 0.72);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(234, 242, 255, 0.78));
+            display: grid;
+            gap: 16px;
+            align-content: start;
+        }
+
+        .panel-title {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 0.01em;
+        }
+
+        .panel-list {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        .panel-list li + li {
+            margin-top: 8px;
+        }
+
+        .section {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .card {
+            padding: 22px;
+            background: var(--surface);
+            border: 1px solid rgba(208, 213, 221, 0.72);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .card h2 {
+            margin: 0 0 10px;
+            font-size: 1.15rem;
+            line-height: 1.2;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .footer {
+            margin-top: 24px;
+            padding-top: 18px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .contact {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        @media (max-width: 920px) {
+            .hero,
+            .section {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 780px) {
+            .shell {
+                width: min(var(--max), calc(100% - 20px));
+                padding-top: 18px;
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero {
+                padding: 22px;
+                border-radius: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <div class="brand">
+                <strong>Legal Pages</strong>
+                <span>Mobile applications</span>
+            </div>
+            <nav class="nav" aria-label="Primary">
+                <a href="policy.html">Privacy Policy</a>
+                <a href="term.html">Terms</a>
+                <a class="active" href="index.html">Home</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow">Privacy Policy &amp; Terms</span>
+                <h1>Privacy Policy &amp; Terms for our mobile applications</h1>
+                <p class="lede">
+                    A polished, GitHub Pages-ready legal hub for multiple iOS apps. The policy text is written to cover data that may be collected depending on the app and features you use, while the terms cover account use, subscriptions, user content, IP, and liability.
+                </p>
+                <div class="cta-row">
+                    <a class="btn primary" href="policy.html">Open Privacy Policy</a>
+                    <a class="btn" href="term.html">Open Terms &amp; Conditions</a>
+                </div>
+            </div>
+            <aside class="hero-panel" aria-label="Important note">
+                <p class="panel-title">For App Store review</p>
+                <ul class="panel-list">
+                    <li>Use this as a shared public policy for multiple mobile apps.</li>
+                    <li>Keep each app's App Store Connect privacy label aligned with its actual data practices.</li>
+                    <li>Update the content if you add new SDKs, permissions, or data flows.</li>
+                </ul>
+                <p class="panel-title">Contact</p>
+                <p style="margin: 0; color: var(--muted);">
+                    Support email: <a class="contact" href="mailto:tantran21501@gmail.com">tantran21501@gmail.com</a>
+                </p>
+            </aside>
+        </section>
+
+        <section class="section" aria-label="Page overview">
+            <article class="card">
+                <h2>Privacy Policy</h2>
+                <p>Describes identifiers, usage data, diagnostics, purchases, user content, location, camera/photos, notifications, third-party services, retention, security, and user rights.</p>
+            </article>
+            <article class="card">
+                <h2>Terms &amp; Conditions</h2>
+                <p>Covers account use, subscriptions and purchases, acceptable use, intellectual property, disclaimers, limitation of liability, termination, and contact.</p>
+            </article>
+            <article class="card">
+                <h2>Reusable for multiple apps</h2>
+                <p>Uses general wording like "depending on the app and features you use" so the same public legal pages can support more than one iOS app.</p>
+            </article>
+        </section>
+
+        <footer class="footer">
+            Last updated: May 6, 2026. This landing page is intended for GitHub Pages and links directly to the legal documents.
+        </footer>
+    </main>
+</body>
+
+</html>

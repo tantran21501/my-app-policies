@@ -1,59 +1,520 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width'>
-    <title>Privacy Policy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Privacy Policy | Mobile Applications</title>
     <style>
+        :root {
+            --bg: #f5f7fb;
+            --surface: rgba(255, 255, 255, 0.92);
+            --surface-strong: #ffffff;
+            --text: #101828;
+            --muted: #475467;
+            --line: #d0d5dd;
+            --line-strong: #98a2b3;
+            --accent: #175cd3;
+            --accent-soft: #eaf2ff;
+            --shadow: 0 18px 40px rgba(16, 24, 40, 0.08);
+            --radius: 18px;
+            --radius-sm: 12px;
+            --max: 980px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            padding: 1em;
+            margin: 0;
+            min-height: 100vh;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(23, 92, 211, 0.08), transparent 30%),
+                radial-gradient(circle at top right, rgba(23, 92, 211, 0.05), transparent 24%),
+                var(--bg);
+            font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .shell {
+            width: min(var(--max), calc(100% - 32px));
+            margin: 0 auto;
+            padding: 32px 0 56px;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .brand strong {
+            font-size: 15px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .brand span {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav a {
+            padding: 10px 14px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav a.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .hero {
+            padding: 34px 0 24px;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 28px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 18px 0 12px;
+            font-size: clamp(2.2rem, 4vw, 3.6rem);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        .lede {
+            margin: 0;
+            max-width: 70ch;
+            font-size: 1.05rem;
+            color: var(--muted);
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.76);
+        }
+
+        .content {
+            display: grid;
+            gap: 18px;
+        }
+
+        section {
+            background: var(--surface);
+            border: 1px solid rgba(208, 213, 221, 0.72);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 22px 24px 14px;
+            border-bottom: 1px solid rgba(208, 213, 221, 0.7);
+        }
+
+        .section-head h2 {
+            margin: 0;
+            font-size: 1.35rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .section-head p {
+            margin: 4px 0 0;
+            color: var(--muted);
+        }
+
+        .section-body {
+            padding: 18px 24px 24px;
+        }
+
+        .label-grid {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .label {
+            padding: 16px;
+            background: var(--surface-strong);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+        }
+
+        .label h3 {
+            margin: 0 0 8px;
+            font-size: 1rem;
+            line-height: 1.25;
+        }
+
+        .label ul,
+        .plain-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .plain-list li + li,
+        .label li + li {
+            margin-top: 8px;
+        }
+
+        .stack {
+            display: grid;
+            gap: 12px;
+        }
+
+        .note {
+            padding: 14px 16px;
+            border-left: 4px solid var(--accent);
+            background: #f8fbff;
+            color: var(--muted);
+            border-radius: 10px;
+        }
+
+        .footer {
+            margin-top: 28px;
+            padding-top: 18px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        @media (max-width: 780px) {
+            .shell {
+                width: min(var(--max), calc(100% - 20px));
+                padding-top: 18px;
+            }
+
+            .topbar,
+            .section-head {
+                flex-direction: column;
+            }
+
+            .label-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-head,
+            .section-body {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <strong>Privacy Policy</strong>
-    <p>This privacy policy applies to the PokeBinder app (hereby referred to as "Application") for mobile devices that
-        was created by tantran21501 (hereby referred to as "Service Provider") as a Free service. This service is
-        intended for use "AS IS".</p><br><strong>What information does the Application obtain and how is it
-        used?</strong>
-    <p>The Application does not obtain any information when you download and use it. Registration is not required to use
-        the Application.</p><br><strong>Does the Application collect precise real time location information of the
-        device?</strong>
-    <p>This Application does not collect precise information about the location of your mobile device.</p><br><strong>Do
-        third parties see and/or have access to information obtained by the Application?</strong>
-    <p>Since the Application does not collect any information, no data is shared with third parties.</p><br><strong>What
-        are my opt-out rights?</strong>
-    <p>You can stop all collection of information by the Application easily by uninstalling it. You may use the standard
-        uninstall processes as may be available as part of your mobile device or via the mobile application marketplace
-        or network.</p><br><strong>Children</strong>
-    <p>The Application is not used to knowingly solicit data from or market to children under the age of 13.</p><br>
-    <p>The Service Provider does not knowingly collect personally identifiable information from children. The Service
-        Provider encourages all children to never submit any personally identifiable information through the Application
-        and/or Services. The Service Provider encourage parents and legal guardians to monitor their children's Internet
-        usage and to help enforce this Policy by instructing their children never to provide personally identifiable
-        information through the Application and/or Services without their permission. If you have reason to believe that
-        a child has provided personally identifiable information to the Service Provider through the Application and/or
-        Services, please contact the Service Provider (tantran21501@gmail.com) so that they will be able to take the
-        necessary actions. You must also be at least 16 years of age to consent to the processing of your personally
-        identifiable information in your country (in some countries we may allow your parent or guardian to do so on
-        your behalf).</p><br><strong>Security</strong>
-    <p>The Service Provider is concerned about safeguarding the confidentiality of your information. However, since the
-        Application does not collect any information, there is no risk of your data being accessed by unauthorized
-        individuals.</p><br><strong>Changes</strong>
-    <p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any
-        changes to their Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult
-        this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p><br>
-    <p>This privacy policy is effective as of 2026-04-21</p><br><strong>Your Consent</strong>
-    <p>By using the Application, you are consenting to the processing of your information as set forth in this Privacy
-        Policy now and as amended by the Service Provider.</p><br><strong>Contact Us</strong>
-    <p>If you have any questions regarding privacy while using the Application, or have questions about the practices,
-        please contact the Service Provider via email at tantran21501@gmail.com.</p>
-    <hr>
-    <p>This privacy policy page was generated by <a href="https://app-privacy-policy-generator.nisrulz.com/"
-            target="_blank" rel="noopener noreferrer">App Privacy Policy Generator</a></p>
+    <main class="shell">
+        <header class="topbar">
+            <div class="brand">
+                <strong>Legal Pages</strong>
+                <span>Mobile applications</span>
+            </div>
+            <nav class="nav" aria-label="Primary">
+                <a class="active" href="policy.html">Privacy Policy</a>
+                <a href="term.html">Terms</a>
+                <a href="index.html">Home</a>
+            </nav>
+        </header>
+
+        <header class="hero">
+            <span class="eyebrow">Privacy Policy</span>
+            <h1>Privacy Policy for our mobile applications</h1>
+            <p class="lede">
+                This policy applies to our mobile applications and related services. Depending on the app and the
+                features you use, we may collect or process the categories of information described below.
+            </p>
+            <div class="meta">
+                <span>Effective: May 6, 2026</span>
+                <span>Contact: tantran21501@gmail.com</span>
+            </div>
+        </header>
+
+        <div class="content">
+            <section id="data-we-may-collect">
+                <div class="section-head">
+                    <div>
+                        <h2>1. Data we may collect</h2>
+                        <p>What we collect depends on the app, the features you enable, and the permissions you grant.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="label-grid">
+                        <div class="label">
+                            <h3>Identifiers</h3>
+                            <ul>
+                                <li>Device identifiers, advertising identifiers, account identifiers, or similar IDs.</li>
+                                <li>May be linked to your identity when needed for account management, support, fraud prevention, or analytics.</li>
+                                <li>May be used for advertising, marketing, measurement, personalization, and tracking where permitted by law and your settings.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Usage data</h3>
+                            <ul>
+                                <li>Interaction data, feature usage, session length, taps, views, and in-app behavior.</li>
+                                <li>May be linked to your identity if you sign in or use a feature tied to an account.</li>
+                                <li>May be used to improve products, understand feature adoption, and support marketing or tracking where applicable.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Diagnostics</h3>
+                            <ul>
+                                <li>Crash logs, performance data, error reports, and other technical diagnostics.</li>
+                                <li>May be linked to your identity if required to investigate an issue tied to your account or device.</li>
+                                <li>Used for debugging, reliability, quality assurance, and security monitoring.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Contact information</h3>
+                            <ul>
+                                <li>Email address, name, support messages, and other details you send to us.</li>
+                                <li>Used for account creation, support, service communications, and customer care.</li>
+                                <li>May be linked to your identity because it is normally provided directly by you.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Purchases and subscriptions</h3>
+                            <ul>
+                                <li>Purchase records, subscription status, entitlement data, receipts, and transaction metadata.</li>
+                                <li>Used to unlock paid content, restore purchases, prevent abuse, and handle billing issues.</li>
+                                <li>Often linked to your identity or account because it is necessary to manage access.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>User content</h3>
+                            <ul>
+                                <li>Content you create, upload, send, or store in the app such as text, files, photos, or profile content.</li>
+                                <li>Used to provide the core app experience, sync content, moderate abuse, and support your account.</li>
+                                <li>May be linked to your identity when tied to your profile or account.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Photos and camera</h3>
+                            <ul>
+                                <li>Images, media, or camera input that you choose to provide.</li>
+                                <li>Used only to support the feature you requested, such as uploading media or scanning content.</li>
+                                <li>May be linked to your identity if stored with your account or shared from signed-in usage.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Location and notifications</h3>
+                            <ul>
+                                <li>Approximate or precise location, and push notification tokens or delivery data when enabled.</li>
+                                <li>Used to provide location-based features, delivery, reminders, alerts, or service messages.</li>
+                                <li>May be linked to your identity when associated with an account or device registration.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="note" style="margin-top: 16px;">
+                        Depending on the app and the SDKs it uses, some of the data above may also be processed by Apple,
+                        analytics providers, crash-reporting tools, payment processors, hosting providers, or other
+                        third-party service providers acting on our behalf.
+                    </div>
+                </div>
+            </section>
+
+            <section id="how-we-use-data">
+                <div class="section-head">
+                    <div>
+                        <h2>2. How we use data</h2>
+                        <p>We use information only for purposes that support the app and our services.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <ul class="plain-list">
+                        <li>Provide, operate, and maintain the app and related features.</li>
+                        <li>Create and manage accounts, subscriptions, purchases, and access rights.</li>
+                        <li>Send service notifications, security alerts, and support replies.</li>
+                        <li>Analyze usage, improve functionality, debug issues, and measure performance.</li>
+                        <li>Prevent fraud, abuse, unauthorized access, and other harmful activity.</li>
+                        <li>Comply with legal obligations, enforce terms, and protect rights and safety.</li>
+                        <li>Personalize content or experiences where the app includes those features.</li>
+                        <li>Support advertising, marketing, and measurement where applicable and allowed by law.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="third-parties">
+                <div class="section-head">
+                    <div>
+                        <h2>3. Third-party services</h2>
+                        <p>The services used can vary from one app to another.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="stack">
+                        <div class="note">
+                            We may use Apple technologies and services, such as Sign in with Apple, App Store purchases, push notification services, or iCloud-related capabilities where the app supports them.
+                        </div>
+                        <div class="note">
+                            We may also use analytics, crash reporting, cloud hosting, database, messaging, support, and payment services to help run the app.
+                        </div>
+                        <div class="note">
+                            Third-party providers are allowed to access data only to perform services on our behalf, comply with law, or protect the security of their systems.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="retention-security">
+                <div class="section-head">
+                    <div>
+                        <h2>4. Retention and security</h2>
+                        <p>We keep data only as long as needed for the purposes described here or as required by law.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <ul class="plain-list">
+                        <li>We retain personal data for account, support, security, accounting, and legal purposes, then delete or anonymize it when no longer needed.</li>
+                        <li>Retention periods can differ by data type, feature, and legal requirement.</li>
+                        <li>We use reasonable administrative, technical, and physical safeguards to help protect personal data.</li>
+                        <li>No method of transmission or storage is completely secure, so we cannot guarantee absolute security.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="rights">
+                <div class="section-head">
+                    <div>
+                        <h2>5. Your choices and rights</h2>
+                        <p>You can control many data practices from the device, the app, or your account settings.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <ul class="plain-list">
+                        <li>Access, update, correct, or delete account information where the app offers those controls.</li>
+                        <li>Withdraw consent or disable permissions such as camera, photos, location, notifications, or microphone through your device settings.</li>
+                        <li>Opt out of marketing messages where such messages are sent, subject to legal and operational limits.</li>
+                        <li>Request account deletion or data deletion by contacting us at tantran21501@gmail.com.</li>
+                        <li>Uninstalling the app stops future collection from that device, but it does not automatically remove data already processed or stored elsewhere.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="children">
+                <div class="section-head">
+                    <div>
+                        <h2>6. Children&rsquo;s privacy</h2>
+                        <p>Our apps are not intended to knowingly collect personal data from children without appropriate consent.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <p class="lede" style="font-size: 1rem;">
+                        If we learn that a child has provided personal data without verifiable parental consent where that is required, we will take reasonable steps to delete it.
+                    </p>
+                </div>
+            </section>
+
+            <section id="international">
+                <div class="section-head">
+                    <div>
+                        <h2>7. International transfers</h2>
+                        <p>We may process information in countries other than your own.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <p class="lede" style="font-size: 1rem;">
+                        By using the app, you understand that your information may be transferred to and processed in locations where we or our service providers operate. Those locations may have different data protection laws from your home country.
+                    </p>
+                </div>
+            </section>
+
+            <section id="changes-contact">
+                <div class="section-head">
+                    <div>
+                        <h2>8. Changes and contact</h2>
+                        <p>We may update this policy from time to time.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="stack">
+                        <p class="lede" style="font-size: 1rem;">
+                            When we make material changes, we will post the updated policy on this page and update the effective date above.
+                        </p>
+                        <p class="lede" style="font-size: 1rem;">
+                            If you have questions about this Privacy Policy or our data practices, contact us at
+                            <a href="mailto:tantran21501@gmail.com">tantran21501@gmail.com</a>.
+                        </p>
+                        <div class="note">
+                            Important: this general policy can be used for review and public legal pages, but each app must still disclose its actual data collection accurately in App Store Connect privacy nutrition labels.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            Privacy Policy for our mobile applications. Last updated: May 6, 2026.
+        </footer>
+    </main>
 </body>
 
 </html>
