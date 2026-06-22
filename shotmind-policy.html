@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ShotMind Privacy Policy</title>
+    <style>
+        :root {
+            --bg: #f5f7fb;
+            --surface: rgba(255, 255, 255, 0.92);
+            --surface-strong: #ffffff;
+            --text: #101828;
+            --muted: #475467;
+            --line: #d0d5dd;
+            --line-strong: #98a2b3;
+            --accent: #175cd3;
+            --accent-soft: #eaf2ff;
+            --shadow: 0 18px 40px rgba(16, 24, 40, 0.08);
+            --radius: 18px;
+            --radius-sm: 12px;
+            --max: 980px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(23, 92, 211, 0.08), transparent 30%),
+                radial-gradient(circle at top right, rgba(23, 92, 211, 0.05), transparent 24%),
+                var(--bg);
+            font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .shell {
+            width: min(var(--max), calc(100% - 32px));
+            margin: 0 auto;
+            padding: 32px 0 56px;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .brand strong {
+            font-size: 15px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .brand span {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav a {
+            padding: 10px 14px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav a.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .hero {
+            padding: 34px 0 24px;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 28px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 18px 0 12px;
+            font-size: clamp(2.2rem, 4vw, 3.6rem);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        .lede {
+            margin: 0;
+            max-width: 74ch;
+            font-size: 1.05rem;
+            color: var(--muted);
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.76);
+        }
+
+        .content {
+            display: grid;
+            gap: 18px;
+        }
+
+        section {
+            background: var(--surface);
+            border: 1px solid rgba(208, 213, 221, 0.72);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 22px 24px 14px;
+            border-bottom: 1px solid rgba(208, 213, 221, 0.7);
+        }
+
+        .section-head h2 {
+            margin: 0;
+            font-size: 1.35rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .section-head p {
+            margin: 4px 0 0;
+            color: var(--muted);
+        }
+
+        .section-body {
+            padding: 18px 24px 24px;
+        }
+
+        .label-grid {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .label {
+            padding: 16px;
+            background: var(--surface-strong);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+        }
+
+        .label h3 {
+            margin: 0 0 8px;
+            font-size: 1rem;
+            line-height: 1.25;
+        }
+
+        .label ul,
+        .plain-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .plain-list li + li,
+        .label li + li {
+            margin-top: 8px;
+        }
+
+        .stack {
+            display: grid;
+            gap: 12px;
+        }
+
+        .note {
+            padding: 14px 16px;
+            border-left: 4px solid var(--accent);
+            background: #f8fbff;
+            color: var(--muted);
+            border-radius: 10px;
+        }
+
+        .footer {
+            margin-top: 28px;
+            padding-top: 18px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        @media (max-width: 780px) {
+            .shell {
+                width: min(var(--max), calc(100% - 20px));
+                padding-top: 18px;
+            }
+
+            .topbar,
+            .section-head {
+                flex-direction: column;
+            }
+
+            .label-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-head,
+            .section-body {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <div class="brand">
+                <strong>Legal Pages</strong>
+                <span>ShotMind</span>
+            </div>
+            <nav class="nav" aria-label="Primary">
+                <a href="policy.html">General Privacy</a>
+                <a class="active" href="shotmind-policy.html">ShotMind Privacy</a>
+                <a href="term.html">Terms</a>
+                <a href="index.html">Home</a>
+            </nav>
+        </header>
+
+        <header class="hero">
+            <span class="eyebrow">Privacy Policy</span>
+            <h1>ShotMind Privacy Policy</h1>
+            <p class="lede">
+                This policy explains how ShotMind handles screenshots, local app data, permissions, backend processing,
+                and third-party services. It applies to the ShotMind iOS app, its Share Extension, Widget, Shortcuts
+                integration, and related backend analysis features.
+            </p>
+            <div class="meta">
+                <span>Effective: June 22, 2026</span>
+                <span>Contact: tantran21501@gmail.com</span>
+            </div>
+        </header>
+
+        <div class="content">
+            <section id="summary">
+                <div class="section-head">
+                    <div>
+                        <h2>1. Summary</h2>
+                        <p>ShotMind is designed around user-selected screenshots and local-first storage.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <ul class="plain-list">
+                        <li>You choose which screenshots or images to import from the Photos picker, Files, Share Sheet, Shortcuts, or Back Tap workflows.</li>
+                        <li>ShotMind stores originals, thumbnails, analysis metadata, preferences, quota state, and setup state locally on your device.</li>
+                        <li>When you analyze a screenshot, ShotMind may send an optimized image copy and your selected app language to the ShotMind backend for AI analysis.</li>
+                        <li>ShotMind requests system permissions only when a related feature needs them or when required by platform policy.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="data-handled">
+                <div class="section-head">
+                    <div>
+                        <h2>2. Data ShotMind handles</h2>
+                        <p>The categories below describe the current ShotMind app behavior.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="label-grid">
+                        <div class="label">
+                            <h3>Screenshots and user content</h3>
+                            <ul>
+                                <li>Images you choose to import or share with ShotMind.</li>
+                                <li>Optimized image copies used for backend AI analysis.</li>
+                                <li>Generated summaries, OCR text, categories, extracted items, and recommended actions.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Local app data</h3>
+                            <ul>
+                                <li>Screenshot originals, thumbnails, and metadata stored on your device.</li>
+                                <li>App preferences, language selection, quota state, setup-guide status, widget state, and share/shortcut inbox state.</li>
+                                <li>Some local data is stored in the ShotMind app group so the main app, Share Extension, Widget, and Shortcuts can work together.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Purchase and entitlement data</h3>
+                            <ul>
+                                <li>Apple StoreKit purchase status, subscription status, and entitlement information used to unlock premium features.</li>
+                                <li>Payments are processed by Apple, not directly by ShotMind.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Diagnostics and configuration</h3>
+                            <ul>
+                                <li>Firebase Remote Config and Firebase Installations may process technical diagnostics or installation-related data for app configuration and reliability.</li>
+                                <li>Kingfisher may cache images locally to display thumbnails efficiently.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="note" style="margin-top: 16px;">
+                        ShotMind does not send your coarse location with screenshot analysis requests in the current build.
+                    </div>
+                </div>
+            </section>
+
+            <section id="permissions">
+                <div class="section-head">
+                    <div>
+                        <h2>3. System permissions</h2>
+                        <p>ShotMind uses permission prompts for specific user-facing actions.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="label-grid">
+                        <div class="label">
+                            <h3>Photos and files</h3>
+                            <ul>
+                                <li>ShotMind uses the system Photos picker for user-selected images.</li>
+                                <li>The current app flow does not request full Photo Library access.</li>
+                                <li>Files, Share Sheet, Shortcuts, and Back Tap imports are user-initiated handoffs.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Contacts</h3>
+                            <ul>
+                                <li>Requested only when you choose to add contact details from an analyzed screenshot.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Calendar</h3>
+                            <ul>
+                                <li>Used only to create events you choose to save from analyzed screenshots.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Reminders</h3>
+                            <ul>
+                                <li>Used only to create reminders you choose to add from analyzed screenshots.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Location</h3>
+                            <ul>
+                                <li>Used to show your position and calculate routes when you open map actions from analyzed screenshots.</li>
+                                <li>ShotMind uses coarse location accuracy for this feature.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Notifications</h3>
+                            <ul>
+                                <li>Requested when you enable auto-analyze notifications.</li>
+                                <li>Notifications are local notifications for successful analysis while the app is backgrounded or inactive.</li>
+                                <li>ShotMind does not use APNS push notification tokens in the current build.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>App Tracking Transparency</h3>
+                            <ul>
+                                <li>ShotMind may ask before any tracking across other companies' apps and websites for advertising measurement.</li>
+                                <li>Declining this permission does not limit core ShotMind features.</li>
+                                <li>The current implementation does not add a tracking SDK or direct IDFA access.</li>
+                            </ul>
+                        </div>
+                        <div class="label">
+                            <h3>Permissions not requested</h3>
+                            <ul>
+                                <li>ShotMind does not request Camera, Microphone, Bluetooth, Health, or Local Network permissions in the current build.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="backend-ai">
+                <div class="section-head">
+                    <div>
+                        <h2>4. Backend and AI processing</h2>
+                        <p>Screenshot analysis requires backend processing.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <ul class="plain-list">
+                        <li>When you request analysis, ShotMind sends an optimized screenshot copy and selected language to the ShotMind backend.</li>
+                        <li>The backend may optimize the image, process it in memory, and forward the request to an AI provider to produce the analysis result.</li>
+                        <li>Returned results may include OCR text, summaries, detected categories, extracted items, and recommended actions.</li>
+                        <li>This policy should be updated before release if backend retention, logging, AI provider settings, or storage behavior changes.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="uses">
+                <div class="section-head">
+                    <div>
+                        <h2>5. How ShotMind uses data</h2>
+                        <p>Data is used to provide the app features you request.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <ul class="plain-list">
+                        <li>Import, store, display, search, and organize screenshots.</li>
+                        <li>Analyze screenshots and generate actionable insights.</li>
+                        <li>Create user-confirmed actions such as contacts, calendar events, reminders, map routes, mail drafts, URLs, and PDFs.</li>
+                        <li>Manage quotas, purchases, premium entitlements, setup status, widgets, and Shortcuts workflows.</li>
+                        <li>Improve app reliability, fetch app configuration, debug issues, and prevent abuse.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="retention-deletion">
+                <div class="section-head">
+                    <div>
+                        <h2>6. Local storage, retention, and deletion</h2>
+                        <p>You can manage local ShotMind storage from the app.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <ul class="plain-list">
+                        <li>Imported screenshots and thumbnails remain local unless you delete them, delete all ShotMind local storage, or uninstall the app.</li>
+                        <li>ShotMind may delete temporary upload copies after successful analysis while keeping the original and thumbnail needed for your library.</li>
+                        <li>The Storage and Privacy screen can show local storage stats and delete local ShotMind files and metadata.</li>
+                        <li>Uninstalling the app removes future collection from that device, but it may not remove data already processed by backend or third-party providers.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="third-parties">
+                <div class="section-head">
+                    <div>
+                        <h2>7. Third-party services</h2>
+                        <p>ShotMind relies on platform services and selected providers.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="stack">
+                        <div class="note">Apple services may process purchase, entitlement, permission, widget, shortcut, and system integration data according to Apple's policies.</div>
+                        <div class="note">Firebase Remote Config and Firebase Installations may process technical diagnostics or installation-related data to provide remote configuration and reliability support.</div>
+                        <div class="note">An AI provider may process optimized screenshots sent through the ShotMind backend for analysis. Provider behavior may vary by backend configuration and must be kept aligned with the release build.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="choices-rights">
+                <div class="section-head">
+                    <div>
+                        <h2>8. Your choices and rights</h2>
+                        <p>You control many ShotMind data practices from the app or iOS Settings.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <ul class="plain-list">
+                        <li>You can choose which screenshots to import and analyze.</li>
+                        <li>You can decline optional permissions; some related actions may not work without the matching permission.</li>
+                        <li>You can disable notifications, location, contacts, reminders, calendar, or tracking permissions in iOS Settings.</li>
+                        <li>You can delete local ShotMind storage from the app where available.</li>
+                        <li>You can contact us to ask privacy questions or request help with data deletion.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="children-changes-contact">
+                <div class="section-head">
+                    <div>
+                        <h2>9. Children, changes, and contact</h2>
+                        <p>We may update this policy as ShotMind evolves.</p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="stack">
+                        <p class="lede" style="font-size: 1rem;">ShotMind is not intended to knowingly collect personal data from children without appropriate consent.</p>
+                        <p class="lede" style="font-size: 1rem;">If we make material changes, we will post the updated policy on this page and update the effective date above.</p>
+                        <p class="lede" style="font-size: 1rem;">If you have questions about this ShotMind Privacy Policy, contact us at <a href="mailto:tantran21501@gmail.com">tantran21501@gmail.com</a>.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            ShotMind Privacy Policy. Last updated: June 22, 2026.
+        </footer>
+    </main>
+</body>
+
+</html>

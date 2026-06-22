@@ -204,7 +204,7 @@
         .section {
             display: grid;
             gap: 18px;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         }
 
         .card {
@@ -278,6 +278,7 @@
             </div>
             <nav class="nav" aria-label="Primary">
                 <a href="policy.html">Privacy Policy</a>
+                <a href="shotmind-policy.html">ShotMind Privacy</a>
                 <a href="term.html">Terms</a>
                 <a class="active" href="index.html">Home</a>
             </nav>
@@ -292,6 +293,7 @@
                 </p>
                 <div class="cta-row">
                     <a class="btn primary" href="policy.html">Open Privacy Policy</a>
+                    <a class="btn" href="shotmind-policy.html">Open ShotMind Policy</a>
                     <a class="btn" href="term.html">Open Terms &amp; Conditions</a>
                 </div>
             </div>
@@ -313,6 +315,10 @@
             <article class="card">
                 <h2>Privacy Policy</h2>
                 <p>Describes identifiers, usage data, diagnostics, purchases, user content, location, camera/photos, notifications, third-party services, retention, security, and user rights.</p>
+            </article>
+            <article class="card">
+                <h2>ShotMind Privacy Policy</h2>
+                <p>A dedicated policy for ShotMind's screenshot analysis, local storage, permissions, App Tracking Transparency prompt, backend AI processing, and app-group data flows.</p>
             </article>
             <article class="card">
                 <h2>Terms &amp; Conditions</h2>
